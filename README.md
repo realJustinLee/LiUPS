@@ -8,7 +8,7 @@ that provides reverse proxy for deploying your https sites.
 - [ ] FTP server
 - [x] Nginx server
 - [x] MySQL Server
-- [x] PhpMyAdmin
+- [x] phpMyAdmin
 - [x] Let's Encrypt SSL auto deploy.
 
 ## Usage
