@@ -22,3 +22,24 @@ services:
       - ~/data/certbot/conf:/etc/letsencrypt
       - ~/data/certbot/www:/var/www/certbot
     entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+
+  mysql_db:
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    env_file:
+      - .env-mysql
+    image: mariadb
+    ports:
+      - 1984:3306
+    restart: always
+    volumes:
+      - ~/data/mysql:/var/lib/mysql
+
+  phpmyadmin:
+    depends_on:
+      - mysql_db
+    environment:
+      PMA_HOST: mysql_db
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - 8080:80
+    restart: always
