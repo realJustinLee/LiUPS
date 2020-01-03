@@ -39,6 +39,7 @@ services:
       - mysql_db
     environment:
       PMA_HOST: mysql_db
+      PMA_ABSOLUTE_URI: https://pma.example.com/
     image: phpmyadmin/phpmyadmin
     ports:
       - 8080:80
