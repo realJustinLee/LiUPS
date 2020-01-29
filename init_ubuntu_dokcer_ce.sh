@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 # Update the `apt` package index:
-apt-get update && apt-get upgrade && apt-get dist-upgrade
+apt-get update -y && apt-get upgrade -y && apt-get dist-upgrade -y
 
 # Install packages to allow `apt` to use a repository over HTTPS:
 apt-get install \
@@ -9,7 +9,7 @@ apt-get install \
   ca-certificates \
   curl \
   gnupg-agent \
-  software-properties-common
+  software-properties-common -y
 
 # Add Docker’s official GPG key:
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
@@ -25,11 +25,11 @@ fi
 add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $codename stable"
 
 # Update the `apt` package index:
-apt-get update && apt-get upgrade && apt-get dist-upgrade
+apt-get update -y && apt-get upgrade -y && apt-get dist-upgrade -y
 
 # Install the latest version of Docker Engine - Community and containerd
-apt-get install docker-ce docker-ce-cli containerd.io python3 python3-pip
+apt-get install docker-ce docker-ce-cli containerd.io python3 python3-pip -y
 
-apt install unzip docker-compose
+apt-get install unzip docker-compose -y
 
 exit
