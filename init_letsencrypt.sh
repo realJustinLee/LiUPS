@@ -100,9 +100,9 @@ docker-compose ${compose_file_arg} run --rm --entrypoint "\
     -subj '/CN=localhost'" certbot
 echo
 
-# Start nginx
-echo "### Starting nginx ..."
-docker-compose ${compose_file_arg} up --force-recreate --no-deps -d nginx
+# Start docker-compose
+echo "### Starting docker-compose ..."
+docker-compose ${compose_file_arg} up --force-recreate --no-deps -d
 echo
 
 # Delete dummy certificate
