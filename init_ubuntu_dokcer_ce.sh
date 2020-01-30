@@ -32,4 +32,4 @@ apt-get install docker-ce docker-ce-cli containerd.io python3 python3-pip -y
 
 apt-get install unzip docker-compose -y
 
-exit
+return
