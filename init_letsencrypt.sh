@@ -1,10 +1,10 @@
 #!/bin/bash
 set -e
 
-domains=(example.com your.dub-domains.in.app.conf) # Specify domains here or use the -d argument
-data_path="$HOME/data/certbot"        # Specify data path here or use the --data-path argument
-email="your@email.com"                # Specify email here or use the --email argument
-staging=0                             # Set to 1 here or use the --staging argument
+domains=(express.juadm.com)         # Specify domains here or use the -d argument
+data_path="$HOME/.my_ray/certbot" # Specify data path here or use the --data-path argument
+email="JustinDellAdam@live.com"   # Specify email here or use the --email argument
+staging=0                         # Set to 1 here or use the --staging argument
 rsa_key_size=4096
 
 print_help() {
@@ -100,9 +100,9 @@ docker-compose ${compose_file_arg} run --rm --entrypoint "\
     -subj '/CN=localhost'" certbot
 echo
 
-# Start nginx
-echo "### Starting nginx ..."
-docker-compose ${compose_file_arg} up --force-recreate --no-deps -d nginx
+# Start docker-compose
+echo "### Starting docker-compose ..."
+docker-compose ${compose_file_arg} up --force-recreate --no-deps -d
 echo
 
 # Delete dummy certificate
