@@ -103,5 +103,8 @@ venv.bak/
 # mypy
 .mypy_cache/
 
+# macOS Spotlight DB file
+*.DS_Store
+
 # Project specific
 .env-mysql
