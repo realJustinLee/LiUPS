@@ -14,7 +14,7 @@ that provides reverse proxy for deploying your https sites.
 ## Usage
 1. First and for most, clone this repo:
     ```shell script
-    git clone https://github.com/Great-Li-Xin/LiUPS.git
+    git clone https://github.com/realJustinLee/LiUPS.git
     cd LiUPS
     ```
 1. Edit `.conf/nginx/app.conf`:
