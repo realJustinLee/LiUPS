@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-domains=(example.com your.dub-domains.in.app.conf) # Specify domains here or use the -d argument
+domains=(example.com your.sub-domains.in.app.conf) # Specify domains here or use the -d argument
 data_path="$HOME/data/certbot"        # Specify data path here or use the --data-path argument
 email="your@email.com"              # Specify email here or use the --email argument
 staging=0                             # Set to 1 here or use the --staging argument
