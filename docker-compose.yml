@@ -32,7 +32,7 @@ services:
       - .env-mysql
     volumes:
       - ~/data/mysql:/var/lib/mysql
-    command: mariadb --default-character-set=utf8mb4
+    command: mariadbd --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
 
   phpmyadmin:
     depends_on:
