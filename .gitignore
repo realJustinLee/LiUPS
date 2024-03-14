@@ -107,5 +107,5 @@ venv.bak/
 *.DS_Store
 
 # Project specific
+.idea/
 .env-mysql
-
