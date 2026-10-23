@@ -1,7 +1,8 @@
 services:
-
   nginx:
     image: nginx:latest
+    depends_on:
+      - speedtest
     ports:
       - "80:80"
       - "443:443"
@@ -10,7 +11,7 @@ services:
       - .conf/nginx:/etc/nginx/conf.d
       - ~/data/certbot/conf:/etc/letsencrypt
       - ~/data/certbot/www:/var/www/certbot
-      - ~/static_www/:/var/www
+      - ~/static-www/:/var/www
     command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
 
   certbot:
@@ -22,7 +23,7 @@ services:
     entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
 
   mysql_db:
-    image: mariadb
+    image: mariadb:latest
     ports:
       - "1984:3306"
     restart: always
@@ -32,11 +33,13 @@ services:
       - ~/data/mysql:/var/lib/mysql
     command: mariadbd --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
 
-  phpmyadmin:
-    depends_on:
-      - mysql_db
-    environment:
-      PMA_HOST: mysql_db
-      PMA_ABSOLUTE_URI: https://pma.example.com/
-    image: phpmyadmin/phpmyadmin
+  speedtest:
+    container_name: speedtest
+    image: ghcr.io/librespeed/speedtest:latest
     restart: always
+    environment:
+      MODE: standalone
+      TITLE: "LibreSpeed"
+      TAGLINE: "No Flash, No Java, No Websockets, No Bullsh*t"
+      USE_NEW_DESIGN: "true"
+      WEBPORT: 80
